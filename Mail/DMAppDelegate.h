@@ -115,6 +115,8 @@
 - (IBAction)selectTrash:(id)sender;
 - (IBAction)selectLabels:(id)sender;
 
+- (IBAction)resetApp:(id)sender;
+
 @end
 
 @interface DMAppDelegate (DMQuickLookSupport)

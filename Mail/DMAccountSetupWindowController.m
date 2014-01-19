@@ -11,6 +11,7 @@
 #import "DMWelcomeViewController.h"
 #import "DMBasicAssistantViewController.h"
 #import "DMIMAPAssistantViewController.h"
+#import "DMSMTPAssistantViewController.h"
 #import "DMAppDelegate.h"
 
 #define AnimationDuration 0.3
@@ -60,18 +61,22 @@
 	DMWelcomeViewController *welcomeViewController = [[DMWelcomeViewController alloc]init];
 	DMBasicAssistantViewController *basicAssistantViewController = [[DMBasicAssistantViewController alloc]init];
 	DMIMAPAssistantViewController *customIMAPAssistantViewController = [[DMIMAPAssistantViewController alloc]init];
+    DMSMTPAssistantViewController *customerSMTPAssistantViewControlled = [[DMSMTPAssistantViewController alloc]init];
 	
 	[self insertAssistantPane:welcomeViewController];
 	[self insertAssistantPane:basicAssistantViewController];
 	[self insertAssistantPane:customIMAPAssistantViewController];
+    [self insertAssistantPane:customerSMTPAssistantViewControlled];
 }
 
 - (void)buidlModalUI {
 	DMBasicAssistantViewController *basicAssistantViewController = [[DMBasicAssistantViewController alloc] initInModalSheet];
 	DMIMAPAssistantViewController *customIMAPAssistantViewController = [[DMIMAPAssistantViewController alloc]init];
+    DMSMTPAssistantViewController *customerSMTPAssistantViewControlled = [[DMSMTPAssistantViewController alloc]init];
 
 	[self insertAssistantPane:basicAssistantViewController];
 	[self insertAssistantPane:customIMAPAssistantViewController];
+    [self insertAssistantPane:customerSMTPAssistantViewControlled];
 }
 
 - (void)resetAllPanes {
@@ -172,6 +177,7 @@
 #pragma mark - DMAccountSetupDelegate
 
 - (void)finishCreatingAccount:(DMAssistantViewController *)sender {
+    NSLog(@"%@",sender.info);
 	[self _finishedWithInfo:sender.info];
 }
 

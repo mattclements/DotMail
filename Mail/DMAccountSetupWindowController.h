@@ -12,6 +12,7 @@ typedef NS_ENUM(NSUInteger, DMAssistantPane) {
 	DMAssistantPaneWelcome = 0,
 	DMAssistantPaneBasicAssistant,
 	DMAssistantPaneCustomIMAPAssistant,
+    DMAssistantPaneCustomSMTPAssistant,
 	DMAssistantPaneDone,
 };
 

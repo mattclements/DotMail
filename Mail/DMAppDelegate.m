@@ -23,6 +23,7 @@
 #pragma mark - Lifecycle
 
 + (void)load {
+    NSLog(@"%@",[NSBundle.mainBundle pathForResource:@"Defaults" ofType:@"plist"]);
 	[NSUserDefaults.standardUserDefaults registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"Defaults" ofType:@"plist"]]];
 }
 
@@ -92,6 +93,7 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
+    NSLog(@"%lu",(unsigned long)PSTAccountManager.defaultManager.accounts.count);
 	if (PSTAccountManager.defaultManager.accounts.count != 0) {
 		[self.mainWindowController setup];
 		[self.mainWindowController showWindow:NSApp];
@@ -262,6 +264,12 @@
 - (IBAction)selectLabels:(id)sender {
 	[self.mainWindowController selectMailbox:PSTFolderTypeLabel];
 
+}
+
+- (IBAction)resetApp:(id)sender {
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    exit(0);
 }
 
 

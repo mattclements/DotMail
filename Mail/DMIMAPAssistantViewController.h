@@ -8,9 +8,11 @@
 
 
 #import "DMAssistantViewController.h"
+#import "DMPopUpButton.h"
 
 
 @class DMToolbar;
+@class DMFlatButton;
 
 @interface DMIMAPAssistantViewController : DMAssistantViewController <NSTokenFieldDelegate>
 
@@ -34,5 +36,12 @@
 @property (nonatomic, strong) TUIImageView *portWarning;
 
 @property (nonatomic, strong) TUIButton *validateButton;
+
+@property (nonatomic, strong) NSTextField *serverTextField;
+@property (nonatomic, strong) NSTextField *usernameTextField;
+@property (nonatomic, strong) NSSecureTextField *passwordTextField;
+@property (nonatomic, strong) DMPopUpButton *imapSecureMode;
+
+@property (nonatomic, strong) DMFlatButton *createAccountButton;
 
 @end

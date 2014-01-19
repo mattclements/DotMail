@@ -8,8 +8,41 @@
 
 
 #import "DMAssistantViewController.h"
+#import "DMPopUpButton.h"
 
 
-@interface DMSMTPAssistantViewController : DMAssistantViewController
+@class DMToolbar;
+@class DMFlatButton;
+
+@interface DMSMTPAssistantViewController : DMAssistantViewController <NSTokenFieldDelegate>
+
+@property (nonatomic, strong) DMToolbar *toolbarView;
+//@property (nonatomic, strong) NSTokenField *serverTypeTokenField;
+@property (nonatomic, strong) TUILabel *serverNameLabel;
+@property (nonatomic, strong) TUILabel *loginLabel;
+@property (nonatomic, strong) TUILabel *passwordLabel;
+@property (nonatomic, strong) TUILabel *portLabel;
+@property (nonatomic, strong) TUILabel *warningLabel;
+
+@property (nonatomic, strong) TUITextField *serverNameField;
+@property (nonatomic, strong) TUITextField *loginField;
+@property (nonatomic, strong) TUITextField *passwordField;
+@property (nonatomic, strong) TUITextField *portField;
+@property (nonatomic, strong) TUITextField *warningField;
+
+@property (nonatomic, strong) TUIImageView *serverNameWarning;
+@property (nonatomic, strong) TUIImageView *loginWarning;
+@property (nonatomic, strong) TUIImageView *passwordWarning;
+@property (nonatomic, strong) TUIImageView *portWarning;
+
+@property (nonatomic, strong) TUIButton *validateButton;
+
+@property (nonatomic, strong) NSTextField *serverTextField;
+@property (nonatomic, strong) NSTextField *usernameTextField;
+@property (nonatomic, strong) NSSecureTextField *passwordTextField;
+@property (nonatomic, strong) DMPopUpButton *smtpSecureMode;
+@property (nonatomic, strong) DMPopUpButton *smtpAuthentication;
+
+@property (nonatomic, strong) DMFlatButton *createAccountButton;
 
 @end

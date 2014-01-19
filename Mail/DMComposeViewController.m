@@ -43,6 +43,7 @@ static NSString *const DMTextDidBeginEditingNotification = @"DMTextDidBeginEditi
 	toolbar.autoresizingMask = NSViewWidthSizable | NSViewMinXMargin | NSViewMaxXMargin | NSViewMinYMargin;
 	
 	DMToolbarButton *attachmentButton = [[DMToolbarButton alloc]initWithImage:[NSImage imageNamed:@"ComposeToolbarAttach.png"]];
+    [attachmentButton setFocusRingType:NSFocusRingTypeNone];
 	attachmentButton.frame = (NSRect){ .size = { 30, 30 } };
 	[attachmentButton.rac_selectionSignal subscribeNext:^(id _) {
 		[[view.window.windowController document] showAttachFilesWindow:nil];
@@ -52,6 +53,7 @@ static NSString *const DMTextDidBeginEditingNotification = @"DMTextDidBeginEditi
 	
 	DMToolbarButton *sendButton = [[DMToolbarButton alloc]initWithImage:[NSImage imageNamed:@"SendBtn"]];
 	sendButton.frame = (NSRect){ .size = { 80, 28 } };
+    [sendButton setFocusRingType:NSFocusRingTypeNone];
 	@weakify(self);
 	sendButton.rac_command = [[RACCommand alloc]initWithEnabled:self.viewModel.sendValidationSignal signalBlock:^RACSignal *(id input) {
 		return [RACSignal return:input];
@@ -71,6 +73,7 @@ static NSString *const DMTextDidBeginEditingNotification = @"DMTextDidBeginEditi
 		[(DMComposerDocument *)[view.window.windowController document] saveMessage:NSApp];
 	}];
 	saveButton.autoresizingMask = NSViewMinXMargin;
+    [saveButton setFocusRingType:NSFocusRingTypeNone];
 	[toolbar addSubview:saveButton];
 	
 	DMLabel *toLabel = [[DMLabel alloc]initWithFrame:(NSRect){ .origin.x = 20, .origin.y = CGRectGetHeight(_frame) - 76, .size = { 30, 20 } }];
